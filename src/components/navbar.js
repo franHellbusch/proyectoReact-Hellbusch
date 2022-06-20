@@ -9,14 +9,16 @@ const NavBar = () => {
                 <img className='img-logo' src={imagenlogo} alt="imagenLogo" />
                 <a className='pagetitle' href="#">TiendaOnline</a>
             </div>
-            <nav className='header-nav'>
-                <a className='nav-links' href="#">Inicio</a>
-                <a className='nav-links' href="#">Productos</a>
-                <a className='nav-links' href="#">Contacto</a>
-                <button className='nav-buttons'>Login</button>
-                <button className='nav-buttons'>Sing Up</button>
+            <div className='contenido_header-nav'>
+                <nav className='header-nav'>
+                    <a className='nav-links' href="#">Inicio</a>
+                    <a className='nav-links' href="#">Productos</a>
+                    <a className='nav-links' href="#">Contacto</a>
+                    <button className='nav-buttons'>Login</button>
+                    <button className='nav-buttons'>Sing Up</button>
+                </nav>
                 <ShoppingCartIcon className='nav-icon' fontSize="large"/>
-            </nav>
+            </div>
         </header>
     )
 }

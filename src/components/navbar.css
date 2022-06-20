@@ -31,6 +31,10 @@ a{
 }
 .pagetitle:hover:after { transform: scaleX(1); }
 
+.contenido_header-nav{
+    display: flex;
+    align-items: center;
+}
 .header-nav{
     display: flex;
     align-items: center;
