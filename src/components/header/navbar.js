@@ -1,5 +1,5 @@
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import imagenlogo from '../assets/imagenlogo.jpg';
+import imagenlogo from '../../assets/imagenlogo.jpg';
+import CartWidget from './CartWidget'
 import './navbar.css';
 
 const NavBar = () => {
@@ -17,7 +17,7 @@ const NavBar = () => {
                     <button className='nav-buttons'>Login</button>
                     <button className='nav-buttons'>Sing Up</button>
                 </nav>
-                <ShoppingCartIcon className='nav-icon' fontSize="large"/>
+                <CartWidget />
             </div>
         </header>
     )
