@@ -1,0 +1,45 @@
+.item-list-container{
+    margin: 0 10%;
+}
+
+.spinner-position{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.spinner-wrapper{
+    width: 150px;
+    height: 150px;
+}
+
+.spinner {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border: 10px solid #fff;
+    border-top-color: #4bc8eb;
+    border-bottom-color: #f13a8f;
+    border-radius: 50%;
+    
+    animation: rotate 5s linear infinite;
+}
+
+.spinner-inner{
+    border-top-color: #36f372;
+    border-bottom-color: #150050;
+    animation-duration: 2.5s;
+}
+
+@keyframes rotate {
+    0% {
+      transform: scale(1) rotate(360deg);
+    }
+    50%{
+        transform: scale(.8) rotate(-360deg);
+    }
+    100% {
+        transform: scale(1) rotate(360deg);
+    }
+}

@@ -1,0 +1,54 @@
+.card{
+    width: 26%;
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 1px 1px 3px #082032;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+.card:hover {
+    transform: scale(1.015);
+    box-shadow: 1px 1px 4px 1px #082032;
+}
+
+.card-img{
+    width: 80%;
+    margin: 10px;
+    height: 300px;
+}
+
+.card-body{
+    margin: 20px;
+}
+
+.card-title{
+    font-size: 23px;
+}
+
+.card-desc{
+    font-size: 15px;
+}
+
+.card-price{
+    font-size: 25px;
+}
+
+.card-button{
+    cursor: pointer;
+    font-size: 15px;
+    color: aliceblue;
+    background-color: #082032;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 0;
+    box-shadow: 1px 1px 2px #082032;
+    transition: 0.5s;
+}
+
+.card-button:hover{
+    transform: scale(1.1);
+}
