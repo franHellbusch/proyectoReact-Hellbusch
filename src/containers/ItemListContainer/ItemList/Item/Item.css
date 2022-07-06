@@ -1,5 +1,8 @@
 .card{
     width: 26%;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
     margin: 15px;
     display: flex;
     flex-direction: column;
@@ -18,11 +21,39 @@
 .card-img{
     width: 80%;
     margin: 10px;
-    height: 300px;
+    position: relative;
+    object-fit: cover;
+}
+
+.container-card-body{
+    width: 100%;
+    position: absolute;
+    bottom: -110px;
+    transition: 0.5s;
+}
+
+.container-card-body:after {
+    border-style: solid;
+    border-width: 0 0 20px 0;
+    border-color: #fff;
+    border-top: 2px solid black;
+    position:absolute;
+    content: " ";
+    display:block;
+    left:-5%;
+    top:-10px;
+    transform:rotate(-3deg);
+    width:110%;
 }
 
 .card-body{
-    margin: 20px;
+    padding: 20px;
+    position: relative;
+    background: white;
+}
+
+.card:hover .container-card-body{
+    bottom: 0;
 }
 
 .card-title{

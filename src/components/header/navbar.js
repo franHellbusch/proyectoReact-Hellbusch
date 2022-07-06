@@ -1,17 +1,18 @@
 import imagenlogo from '../../assets/imagenlogo.jpg';
 import CartWidget from './CartWidget'
 import './navbar.css';
+import { Link } from 'react-router-dom'
 
 const NavBar = () => {
     return (
         <header>
             <div className='pagename'>
-                <img className='img-logo' src={imagenlogo} alt="imagenLogo" />
-                <a className='pagetitle' href="#">TiendaOnline</a>
+                <Link to="/"><img className='img-logo' src={imagenlogo} alt="imagenLogo" /></Link>
+                <Link to="/" className='pagetitle'>TiendaOnline</Link>
             </div>
             <div className='contenido_header-nav'>
                 <nav className='header-nav'>
-                    <a className='nav-links' href="#">Inicio</a>
+                    <Link to="/" className='nav-links'>Inicio</Link>
                     <a className='nav-links' href="#">Productos</a>
                     <a className='nav-links' href="#">Contacto</a>
                     <button className='nav-buttons'>Login</button>

@@ -11,7 +11,7 @@ const ItemListContainer = () => {
     useEffect(() => {
         const getProducts = async () => {
             try{
-                const res = await fetch('https://fakestoreapi.com/products?limit=6');
+                const res = await fetch('https://fakestoreapi.com/products');
                 const data = await res.json();
                 setProducts(data)
             }
