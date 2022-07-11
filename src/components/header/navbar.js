@@ -1,7 +1,8 @@
 import imagenlogo from '../../assets/imagenlogo.jpg';
 import CartWidget from './CartWidget'
 import './navbar.css';
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
+import LinksContainer from './LinksContainer.js'
 
 const NavBar = () => {
     return (
@@ -12,13 +13,11 @@ const NavBar = () => {
             </div>
             <div className='contenido_header-nav'>
                 <nav className='header-nav'>
-                    <Link to="/" className='nav-links'>Inicio</Link>
-                    <a className='nav-links' href="#">Productos</a>
-                    <a className='nav-links' href="#">Contacto</a>
+                    <LinksContainer />
                     <button className='nav-buttons'>Login</button>
                     <button className='nav-buttons'>Sing Up</button>
                 </nav>
-                <CartWidget />
+                <NavLink to='/cart'><CartWidget /></NavLink>
             </div>
         </header>
     )

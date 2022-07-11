@@ -11,6 +11,7 @@ a{
 .pagename{
     display: flex;
     align-items: center;
+    font-family: 'Edu VIC WA NT Beginner', cursive;
 }
 
 .img-logo{
@@ -19,8 +20,9 @@ a{
 }
 
 .pagetitle{
-    font-size: 30px;
+    font-size: 40px;
     color: #0c0717;
+    font-family: 'Edu VIC WA NT Beginner', cursive;
 }
 .pagetitle:after{
     display:block;
@@ -38,32 +40,6 @@ a{
 .header-nav{
     display: flex;
     align-items: center;
-}
-
-.nav-links{
-    color: #2c394b;
-    opacity: 0.7;
-    font-weight: 500;
-    font-size: 20px;
-    margin: 0 15px;
-    transition: 0.5s ease-in-out;
-}
-.nav-links:hover{
-    opacity: 1;
-}
-
-.nav-links:after {
-    display: block;
-    content: '';
-    border-bottom: 1px solid #150050;
-    transform: scale(0);
-    transition: transform 0.5s ease-in-out;
-}
-.nav-links:hover:after{
-    transform: scale(1);
-}
-.nav-links:after{
-    transform-origin: 0% 50%;
 }
 
 .nav-buttons{

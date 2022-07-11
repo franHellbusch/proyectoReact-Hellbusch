@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './ItemListContainer.css';
 import ItemList from './ItemList/ItemList';
+import { useParams } from 'react-router-dom';
 
 const ItemListContainer = () => {
 
@@ -8,10 +9,16 @@ const ItemListContainer = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
 
+    const { categoryName } = useParams();
+
+    const URL = categoryName ? `https://fakestoreapi.com/products/category/${categoryName}` : 'https://fakestoreapi.com/products';
+
     useEffect(() => {
+        setLoading(true);
+        setError(false);
         const getProducts = async () => {
             try{
-                const res = await fetch('https://fakestoreapi.com/products');
+                const res = await fetch(URL);
                 const data = await res.json();
                 setProducts(data)
             }
@@ -26,7 +33,7 @@ const ItemListContainer = () => {
         setTimeout(() => {
             getProducts()
         }, 2500);
-    }, []);
+    }, [categoryName]);
 
     return(
         <div className='item-list-container'>
