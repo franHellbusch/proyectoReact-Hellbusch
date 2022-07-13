@@ -47,26 +47,26 @@
     font-size: 30px;
 }
 
-.detail-card-button{
-    color: white;
-    font-size: 20px;
-    padding: 10px 20px;
-    cursor: pointer;
-    background: linear-gradient(to left, #0c0717, #3f0071);
-    border: 2px solid #a6b2ec;
-    border-radius: 5px;
-    transition: 0.5s;
-}
-
-.detail-card-button:hover{
-    transform: scale(1.04);
-    box-shadow: 1px 1px 5px #a6b2ec;
-}
-
 .detail-card-rate{
     padding: 5px;
     background-color: #f1f1f1;
     border: 1px solid black;
     border-radius: 5px;
     font-size: 20px;
+}
+
+.button-finalizar-compra{
+    color: white;
+    font-size: 15px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background: linear-gradient(to left, #0c0717, green);
+    border: 1px solid black;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+.button-finalizar-compra:hover{
+    transform: scale(1.05);
+    box-shadow: 1px 1px 3px 2px green;
 }
