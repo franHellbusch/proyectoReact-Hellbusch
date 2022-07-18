@@ -1,3 +1,4 @@
+import CartContext from './context/CartContext'
 import NavBar from './components/header/navbar'
 import ItemListContainer from './containers/ItemListContainer/ItemListContainer'
 import './App.css';
@@ -12,13 +13,15 @@ import {
 function App() {
   return (
     <BrowserRouter>
-      <NavBar />
-      <Routes>
-        <Route path='/' element={<ItemListContainer />}/>
-        <Route path='/category/:categoryName' element={<ItemListContainer />}/>
-        <Route path='/product/:productId' element={<ItemDetailContainer />}/>
-        <Route path='/cart' element={<CartContainer />}/>
-      </Routes>
+      <CartContext>
+        <NavBar />
+        <Routes>
+          <Route path='/' element={<ItemListContainer />}/>
+          <Route path='/category/:categoryName' element={<ItemListContainer />}/>
+          <Route path='/product/:productId' element={<ItemDetailContainer />}/>
+          <Route path='/cart' element={<CartContainer />}/>
+        </Routes>
+      </CartContext>
     </BrowserRouter>
   );
 }

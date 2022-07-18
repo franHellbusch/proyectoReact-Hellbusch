@@ -1,14 +1,17 @@
 import './ItemDetail.css'
 import ItemCount from './ItemCount/ItemCount'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { cartContext } from '../../../context/CartContext'
 
 const ItemDetail = ({ product }) => {
 
-  const [compra, setCompra] = useState(false)
+  const { addItem } = useContext(cartContext);
+
+  const [compra, setCompra] = useState(false);
 
   const onAdd = (quantity) => {
-    setCompra(true)
+    setCompra(true);
     console.log(`se han enviado ${quantity} productos`);
   }
 
@@ -21,7 +24,7 @@ const ItemDetail = ({ product }) => {
         <p className="detail-card-price"><b>{product.price}</b> U$D</p>
         {compra ? 
         <Link to="/cart"><button className='button-finalizar-compra'>Finalizar Compra</button></Link> :
-        <ItemCount stock={10} initial={1} onAdd={onAdd}/>}
+        <ItemCount product={product} stock={10} initial={1} addItem={addItem}/>}
         <p className="detail-card-rate"><b>Rate:</b> {product.rating.rate} <br/> <b>Comprados:</b> {product.rating.count}</p>
       </div>
     </div>
