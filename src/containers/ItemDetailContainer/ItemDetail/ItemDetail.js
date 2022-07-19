@@ -6,11 +6,12 @@ import { cartContext } from '../../../context/CartContext'
 
 const ItemDetail = ({ product }) => {
 
-  const { addItem } = useContext(cartContext);
+  const { products, addItem } = useContext(cartContext);
 
   const [compra, setCompra] = useState(false);
 
   const onAdd = (quantity) => {
+    addItem(product, quantity)
     setCompra(true);
     console.log(`se han enviado ${quantity} productos`);
   }
@@ -24,7 +25,8 @@ const ItemDetail = ({ product }) => {
         <p className="detail-card-price"><b>{product.price}</b> U$D</p>
         {compra ? 
         <Link to="/cart"><button className='button-finalizar-compra'>Finalizar Compra</button></Link> :
-        <ItemCount product={product} stock={10} initial={1} addItem={addItem}/>}
+        <ItemCount product={product} stock={10} initial={1} onAdd={onAdd}/>}
+        <button onClick={() => console.log(products)}>products</button>
         <p className="detail-card-rate"><b>Rate:</b> {product.rating.rate} <br/> <b>Comprados:</b> {product.rating.count}</p>
       </div>
     </div>
