@@ -22,19 +22,33 @@ const CartCustomProvider = ({ children }) => {
     }
 
     const removeItem = (itemId) => {
-
+        let product = products.find((e) => e.product.id === itemId);
+        let aux = [...products];
+        let index = aux.indexOf(product);
+        aux.splice(index, 1);
+        setProducts(aux)
     }
 
     const clear = () => {
-
+        setProducts([]);
     }
 
     const isInCart = (id) => {
         return products && products.some((i) => i.product.id === id);
     };
 
+    const getQuantity = () => {
+        let productsQuantity = 0
+        products.map((e) => productsQuantity += e.quantity);
+        return productsQuantity
+    };
+
+    const getTotalPrice = () => {
+        let total = 0
+    }
+
     return (
-        <Provider value={{ products, addItem, removeItem, clear, isInCart }}>
+        <Provider value={{ products, addItem, removeItem, clear, isInCart, getQuantity, getTotalPrice }}>
             {children}
         </Provider>
     )

@@ -1,0 +1,26 @@
+.cart-widget-position{
+    display: flex;
+    justify-content: center;
+    margin-left: 15px;
+}
+
+.card-badge{
+    font-size: 15px;
+    text-align: center;
+    position: absolute;
+    color: white;
+    background-color: rgb(233, 22, 22);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid white;
+    transform: translate(55%, -40%);
+}
+
+.nav-icon{
+    color: #8403f2;
+    cursor: pointer;
+}
+.nav-icon:hover{
+    color: #a6b2ec;
+}

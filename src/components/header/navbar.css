@@ -57,12 +57,3 @@ a{
 .nav-buttons:hover{
     transform: scale(1.05);
 }
-
-.nav-icon{
-    margin-left: 15px;
-    color: #8403f2;
-    cursor: pointer;
-}
-.nav-icon:hover{
-    color: #a6b2ec;
-}
