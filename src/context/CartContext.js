@@ -38,13 +38,11 @@ const CartCustomProvider = ({ children }) => {
     };
 
     const getQuantity = () => {
-        let productsQuantity = 0
-        products.map((e) => productsQuantity += e.quantity);
-        return productsQuantity
+        return products.reduce((acum, e) => acum +  e.quantity, 0);
     };
 
     const getTotalPrice = () => {
-        let total = 0
+        return products.reduce((acum, e) => acum + (e.quantity * e.product.price), 0);
     }
 
     return (

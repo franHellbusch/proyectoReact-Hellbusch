@@ -1,5 +1,6 @@
 import './cartItem.css'
 import ClearIcon from '@mui/icons-material/Clear';
+import { Link } from 'react-router-dom'
 
 const cartItem = ({ product, quantity, removeItem}) => {
   return (
@@ -10,7 +11,7 @@ const cartItem = ({ product, quantity, removeItem}) => {
         </div>
         <div className='cart_item-body'>
           <img className='img' src={product.image} alt={product.title} />
-          <p className='description'>{product.description}</p>
+          <p className='description'>{product.description}...<Link key={product.id} to={`/product/${product.id}`}><b>Ver mas</b></Link></p>
         </div>
         <div className='cart_item-footer'>
           <p className='price'>Precio: <b>${product.price}</b></p>
