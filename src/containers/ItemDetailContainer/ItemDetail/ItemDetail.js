@@ -13,7 +13,6 @@ const ItemDetail = ({ product }) => {
   const onAdd = (quantity) => {
     addItem(product, quantity)
     setCompra(true);
-    console.log(`se han enviado ${quantity} productos`);
   }
 
   return(

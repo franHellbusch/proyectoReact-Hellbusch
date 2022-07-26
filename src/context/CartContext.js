@@ -18,7 +18,6 @@ const CartCustomProvider = ({ children }) => {
         } else {
             setProducts([...products, item]);
         }
-        console.log(products)
     }
 
     const removeItem = (itemId) => {

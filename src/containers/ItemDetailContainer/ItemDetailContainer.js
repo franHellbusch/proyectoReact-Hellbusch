@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import ItemDetail from './ItemDetail/ItemDetail.js'
 import './ItemDetailContainer.css'
 import { db } from "../../Firebase/firebase";
-import { getDoc, collection, doc, getDocs } from 'firebase/firestore';
+import { getDoc, collection, doc } from 'firebase/firestore';
 
 const ItemDetailContainer = () => {
 
@@ -23,24 +23,11 @@ const ItemDetailContainer = () => {
             setProduct(product)
         })
         .catch((err) => console.error(err))
-        .finally(() => setLoading(false))
-
-
-
-        // const getItem = async () => {
-        //     try {
-        //         const res = await fetch(`https://fakestoreapi.com/products/${productId}`);
-        //         const data = await res.json();
-        //         setProduct(data)
-        //     } catch (err){
-        //         console.error(err);
-        //     } finally {
-        //         setLoading(false)
-        //     }
-        // }
-        // setTimeout(() => {
-        //     getItem()
-        // }, 2000);
+        .finally(() => 
+            setTimeout(() => {
+                setLoading(false)
+            }, 1500)
+        )
     }, [productId])
     
     return (

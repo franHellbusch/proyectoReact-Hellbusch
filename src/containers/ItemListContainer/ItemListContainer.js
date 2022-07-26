@@ -3,7 +3,7 @@ import './ItemListContainer.css';
 import ItemList from './ItemList/ItemList';
 import { useParams } from 'react-router-dom';
 import { db } from '../../Firebase/firebase'
-import { getDocs, collection, query, where, doc } from 'firebase/firestore';
+import { getDocs, collection, query, where } from 'firebase/firestore';
 
 const ItemListContainer = () => {
 
@@ -13,58 +13,32 @@ const ItemListContainer = () => {
 
     const { categoryName } = useParams();
 
-    const URL = categoryName ? `https://fakestoreapi.com/products/category/${categoryName}` : 'https://fakestoreapi.com/products';
-
     useEffect(() => {
         setLoading(true);
         setError(false);
+
         const productsCollection = collection(db, "products");
-        const q = query(productsCollection, where("category", "==", `${categoryName}`))
-        setTimeout(() => {
-            getDocs(categoryName ? q : productsCollection)
-            .then((res) => {
-                const listProducts = res.docs.map((doc) => {
-                    return {
-                        id: doc.id,
-                        ...doc.data()
-                    }
-                })
-                setProducts(listProducts)
+        const q = categoryName ? query(productsCollection, where("category", "==", `${categoryName}`)) : productsCollection
+
+        getDocs(q)
+        .then((res) => {
+            const listProducts = res.docs.map((doc) => {
+                return {
+                    id: doc.id,
+                    ...doc.data()
+                }
             })
-            .catch((err) => {
-                setError(true);
-                console.error(err);
-            })
-            .finally(() =>
+            setProducts(listProducts)
+        })
+        .catch((err) => {
+            setError(true);
+            console.error(err);
+        })
+        .finally(() =>
+            setTimeout(() => {
                 setLoading(false)
-            )
-        }, 1500);
-
-
-
-
-
-
-
-        /*setLoading(true);
-        setError(false);
-        const getProducts = async () => {
-            try{
-                const res = await fetch(URL);
-                const data = await res.json();
-                setProducts(data)
-            }
-            catch(err){
-                setError(true);
-                console.error(err);
-            }
-            finally{
-                setLoading(false);
-            }
-        }
-        setTimeout(() => {
-            getProducts()
-        }, 2500);*/
+            }, 1500) 
+        )
     }, [categoryName]);
 
     return(

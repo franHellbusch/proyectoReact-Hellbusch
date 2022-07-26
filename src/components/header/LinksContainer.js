@@ -2,22 +2,25 @@ import { useState, useEffect } from "react"
 import { NavLink } from "react-router-dom"
 import './LinkContainer.css'
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import { db } from "../../Firebase/firebase"
+import { getDocs, collection } from "firebase/firestore";
 
 const LinksContainer = () => {
 
     const [ categories, setCategories] = useState([])
 
     useEffect(() => {
-        const getCategories = async () => {
-            try {
-                const res = await fetch("https://fakestoreapi.com/products/categories");
-                const data = await res.json();
-                setCategories(data)
-            } catch (err) {
-                console.err(err)
-            }
-        }
-        getCategories()
+        const categoriesCollection = collection(db, "categories");
+        getDocs(categoriesCollection)
+        .then((res) => {
+            const categoriesList = res.docs.map((category) => {
+                return {
+                    ...category.data()
+                }
+            })
+            setCategories(categoriesList)
+        })
+        .catch((err) => console.log(err))
     }, []);
 
     const dropdownDisplay = () =>{
@@ -32,7 +35,7 @@ const LinksContainer = () => {
             <a className="nav-links link-dropdown-categories" href="#" onClick={dropdownDisplay}>Categorias<ArrowDropDownIcon /></a>
             <ul id="categoriesDropdown" className="categories-dropdown dropdown-closed">
                 {categories.map((category, index) =>
-                    <NavLink className="category-links" key={index} to={`/category/${category}`}>{category}</NavLink>
+                    <NavLink className="category-links" key={index} to={`/category/${category.categoryName}`}>{category.categoryName}</NavLink>
                 )}
             </ul>
         </div>
