@@ -3,7 +3,8 @@ import NavBar from './components/header/navbar'
 import ItemListContainer from './containers/ItemListContainer/ItemListContainer'
 import './App.css';
 import ItemDetailContainer from './containers/ItemDetailContainer/ItemDetailContainer'
-import CartContainer from './containers/CartContainer/CartContainer.js'
+import CartContainer from './containers/CartContainer/CartContainer'
+import FormContainer from './containers/FormContainer/FormContainer';
 import { 
   BrowserRouter,
   Routes,

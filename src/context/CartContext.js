@@ -5,7 +5,8 @@ const { Provider } = cartContext
 
 const CartCustomProvider = ({ children }) => {
 
-    const [products, setProducts] = useState([])
+    const [products, setProducts] = useState([]);
+    const [total, setTotal] = useState(0)
 
     const addItem = (product, quantity) => {
         let item = { product, quantity };

@@ -1,30 +1,49 @@
-import { useContext } from 'react'
-import CartItem from './CartItem/cartItem'
-import { cartContext } from '../../context/CartContext'
-import { Link } from 'react-router-dom'
+import { useState, useContext } from 'react'
+import { addDoc ,collection, serverTimestamp } from 'firebase/firestore'
+import { db } from '../../Firebase/firebase'
+import CartProducts from './CartProducts/CartProducts'
+import CartForm from './CartForm/CartForm.js'
+import CartBuyed from './CartBuyed/CartBuyed.js'
 import './CartContainer.css'
+import { cartContext } from '../../context/CartContext'
 
 const CartContainer = () => {
 
-  const { products, removeItem, clear, getQuantity, getTotalPrice} = useContext(cartContext);
+  const { products, getTotalPrice} = useContext(cartContext);
+  const [venta, setVenta] = useState("")
+  const [finish, setFinish] = useState(false);
+  const [complete, setComplete] = useState(false)
+
+  const completeForm = () => {
+    setFinish(true)
+  }
+
+  const datosPersonales = {
+    Name: "fran",
+    phone: 150000000,
+    email: "......@gmail.com"
+  }
+
+  const finalizarCompra = () => {
+    setFinish(true)
+    setComplete(true)
+    const ventasCollection = collection(db, 'ventas');
+    addDoc(ventasCollection, {
+      buyer: datosPersonales,
+      items: products,
+      date: serverTimestamp(),
+      total: getTotalPrice().toFixed(1)
+    })
+    .then((result) => setVenta(result.id))
+  }
 
   return (
     <div className='cart-container'>
-      {products.length === 0 ? 
-      <div className='add-position'>
-        <h2>No hay productos seleccionados...</h2>
-        <Link to={"/"}><button className='button-products'>Ver productos</button></Link>
-      </div> : 
-      <>
-        <div className='cart-item-container'>
-         {products.map((e) => <CartItem key={e.product.id} product={e.product} quantity={e.quantity} removeItem={removeItem}/>)}
-        </div>
-        <div className='cart-info'>
-          <p className='cart-info-quantity'><b>cantidad:</b> {getQuantity()}</p>
-          <button className='cart-info-button' onClick={clear}>borrar</button>
-          <p className='cart-info-total'>Total: $<b>{getTotalPrice().toFixed(1)}</b></p>
-        </div>
-      </>}
+      { finish && complete ?
+        <CartBuyed idVenta={venta} />
+        : finish && !complete ? 
+        <CartForm finalizarCompra={finalizarCompra}/>
+        : <CartProducts products={products} completeForm={finalizarCompra}/>}
     </div>
   )
 }
