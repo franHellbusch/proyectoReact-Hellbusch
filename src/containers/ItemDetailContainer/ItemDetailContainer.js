@@ -11,7 +11,7 @@ const ItemDetailContainer = () => {
     const [loading, setLoading] = useState(true)
 
     const { productId } = useParams();
-    
+
     useEffect(() => {
         const productsCollection = collection(db, "products");
         getDoc(doc(productsCollection, productId))
@@ -23,13 +23,13 @@ const ItemDetailContainer = () => {
             setProduct(product)
         })
         .catch((err) => console.error(err))
-        .finally(() => 
+        .finally(() =>
             setTimeout(() => {
                 setLoading(false)
             }, 1500)
         )
     }, [productId])
-    
+
     return (
         <>
             {loading ? <div className='loader-position'><div className='loader'></div></div> :

@@ -24,12 +24,13 @@ const CartContainer = () => {
     email: "......@gmail.com"
   }
 
-  const finalizarCompra = () => {
+  const finalizarCompra = (buyer) => {
+    console.log(buyer)
     setFinish(true)
     setComplete(true)
     const ventasCollection = collection(db, 'ventas');
     addDoc(ventasCollection, {
-      buyer: datosPersonales,
+      buyer: buyer,
       items: products,
       date: serverTimestamp(),
       total: getTotalPrice().toFixed(1)
@@ -41,9 +42,9 @@ const CartContainer = () => {
     <div className='cart-container'>
       { finish && complete ?
         <CartBuyed idVenta={venta} />
-        : finish && !complete ? 
+        : finish && !complete ?
         <CartForm finalizarCompra={finalizarCompra}/>
-        : <CartProducts products={products} completeForm={finalizarCompra}/>}
+        : <CartProducts products={products} completeForm={completeForm}/>}
     </div>
   )
 }

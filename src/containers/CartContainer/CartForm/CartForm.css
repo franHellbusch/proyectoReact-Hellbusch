@@ -22,9 +22,11 @@
 }
 
 .nombre-completo{
-    width: 100%;
+    width: 35%;
+    margin: 10px 10px;
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
 .direction-info{
@@ -33,9 +35,13 @@
     justify-content: center;
 }
 
-.name-inputs, .direction-inputs{
-    width: 35%;
+.direction-inputs{
+    width: 100%;
     margin: 10px 10px;
+}
+
+.name-input{
+    width: 100%;
 }
 
 .tel-input{
@@ -45,4 +51,13 @@
 .email-input{
     width: 70%;
     margin: 10px 0;
+}
+
+.placeholder{
+    position: absolute;
+    left: 0;
+}
+
+.name-input:focus .placeholder {
+    font-size: 5px;
 }
