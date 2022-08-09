@@ -1,4 +1,4 @@
-import imagenlogo from '../../assets/imagenlogo.jpg';
+import imagenlogo from '../assets/imagenlogo.jpg';
 import CartWidget from './CartWidget'
 import './navbar.css';
 import { Link, NavLink } from 'react-router-dom'

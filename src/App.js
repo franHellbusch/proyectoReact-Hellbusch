@@ -1,10 +1,10 @@
 import CartContext from './context/CartContext'
-import NavBar from './components/header/navbar'
+import NavBar from './components/navbar'
 import ItemListContainer from './containers/ItemListContainer/ItemListContainer'
 import './App.css';
 import ItemDetailContainer from './containers/ItemDetailContainer/ItemDetailContainer'
 import CartContainer from './containers/CartContainer/CartContainer'
-import FormContainer from './containers/FormContainer/FormContainer';
+import FormContainer from './components/FormContainer/FormContainer';
 import { 
   BrowserRouter,
   Routes,

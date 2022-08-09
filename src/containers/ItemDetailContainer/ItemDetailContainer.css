@@ -1,10 +1,10 @@
-.loader-position{
+.loader-position {
     display: grid;
     place-content: center;
     height: 80vh;
 }
 
-.loader{
+.loader {
     width: 150px;
     height: 150px;
     border-left: 6px solid #ff006e;
@@ -12,7 +12,8 @@
     animation: rightrotate 0.9s linear infinite;
 }
 
-.loader::before, .loader::after{
+.loader::before,
+.loader::after {
     content: "";
     width: 120px;
     height: 120px;
@@ -25,7 +26,7 @@
     animation: leftrotate 0.9s linear infinite;
 }
 
-.loader::after{
+.loader::after {
     width: 90px;
     height: 90px;
     top: calc(50% - 45px);
@@ -36,19 +37,21 @@
 }
 
 @keyframes leftrotate {
-    0%{
+    0% {
         transform: rotate(0deg);
     }
-    100%{
+
+    100% {
         transform: rotate(720deg);
     }
 }
 
 @keyframes rightrotate {
-    0%{
+    0% {
         transform: rotate(360deg);
     }
-    100%{
+
+    100% {
         transform: rotate(0deg);
     }
 }

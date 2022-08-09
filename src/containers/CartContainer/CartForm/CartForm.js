@@ -10,14 +10,14 @@ const CartForm = ({finalizarCompra}) => {
         localidad: "",
         domicilio: "",
         celular: ""
-    })
+    });
 
-    const handleChange = (e) => {
+    const handleChange = ({target: {name, value}}) => {
         setBuyerData({
             ...buyerData,
-            [e.target.name]: e.target.value,
-        })
-    }
+            [name]: value,
+        });
+    };
 
   return (
     <>

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { NavLink } from "react-router-dom"
 import './LinkContainer.css'
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import { db } from "../../Firebase/firebase"
+import { db } from "../Firebase/firebase"
 import { getDocs, collection } from "firebase/firestore";
 
 const LinksContainer = () => {

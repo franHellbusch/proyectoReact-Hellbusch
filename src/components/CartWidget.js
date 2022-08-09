@@ -1,13 +1,13 @@
-import { useState, useContext, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { cartContext } from '../../context/CartContext';
+import { useCartContext } from '../context/CartContext';
 import './CartWidget.css'
 
 const CartWidget = () => {
 
     const [number, setNumber] = useState(1)
 
-    const { products } = useContext(cartContext);
+    const { products } = useCartContext();
 
     useEffect(() => {
       setNumber(products.length)

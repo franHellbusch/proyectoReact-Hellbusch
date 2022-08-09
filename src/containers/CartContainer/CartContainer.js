@@ -1,15 +1,15 @@
-import { useState, useContext } from 'react'
+import { useState } from 'react'
 import { addDoc ,collection, serverTimestamp } from 'firebase/firestore'
 import { db } from '../../Firebase/firebase'
 import CartProducts from './CartProducts/CartProducts'
 import CartForm from './CartForm/CartForm.js'
 import CartBuyed from './CartBuyed/CartBuyed.js'
 import './CartContainer.css'
-import { cartContext } from '../../context/CartContext'
+import { useCartContext } from '../../context/CartContext'
 
 const CartContainer = () => {
 
-  const { products, getTotalPrice} = useContext(cartContext);
+  const { products, getTotalPrice } =  useCartContext();
   const [venta, setVenta] = useState("")
   const [finish, setFinish] = useState(false);
   const [complete, setComplete] = useState(false)

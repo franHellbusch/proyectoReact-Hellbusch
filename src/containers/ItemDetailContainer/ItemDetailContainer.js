@@ -15,25 +15,25 @@ const ItemDetailContainer = () => {
     useEffect(() => {
         const productsCollection = collection(db, "products");
         getDoc(doc(productsCollection, productId))
-        .then((res) => {
-            const product = {
-                id: res.id,
-                ...res.data()
-            }
-            setProduct(product)
-        })
-        .catch((err) => console.error(err))
-        .finally(() =>
-            setTimeout(() => {
-                setLoading(false)
-            }, 1500)
-        )
+            .then((res) => {
+                const product = {
+                    id: res.id,
+                    ...res.data()
+                }
+                setProduct(product)
+            })
+            .catch((err) => console.error(err))
+            .finally(() =>
+                setTimeout(() => {
+                    setLoading(false)
+                }, 1500)
+            )
     }, [productId])
 
     return (
         <>
             {loading ? <div className='loader-position'><div className='loader'></div></div> :
-            <ItemDetail key={product.id} product={product}/>}
+                <ItemDetail key={product.id} product={product} />}
         </>
     )
 }

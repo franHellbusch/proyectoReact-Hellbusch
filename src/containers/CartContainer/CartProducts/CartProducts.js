@@ -1,12 +1,11 @@
-import { useContext } from 'react'
 import CartItem from './CartItem/cartItem'
-import { cartContext } from '../../../context/CartContext'
+import { useCartContext } from '../../../context/CartContext'
 import { Link } from 'react-router-dom'
 import './CartProducts.css'
 
 const CartProducts = ({completeForm, products}) => {
 
-    const { removeItem, clear, getQuantity, getTotalPrice} = useContext(cartContext);
+  const { removeItem, clear, getQuantity, getTotalPrice } = useCartContext()
 
   return (
     <>
