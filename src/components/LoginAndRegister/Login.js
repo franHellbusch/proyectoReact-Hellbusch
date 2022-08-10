@@ -7,7 +7,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 const Login = () => {
 
   const [error, setError] = useState()
-  const { login } = useAuthContext();
+  const { login, loginWithGoogle, loginWithGitHub } = useAuthContext();
   const navigate = useNavigate();
 
   const [user, setUser] = useState({
@@ -29,7 +29,6 @@ const Login = () => {
       await login(user.email, user.password);
       navigate("/");
     } catch (error) {
-      console.log(error.code)
       if (error.code === "auth/invalid-email") {
         setError("El correo es invalido")
       }
@@ -39,6 +38,32 @@ const Login = () => {
       if (error.code === "auth/wrong-password") {
         setError('La contraseña es incorrecta')
       }
+      if (error.code === "auth/too-many-requests") {
+        setError('La cuenta a sido deshabilitada temporalmente, realizo muchos intentos para ingresar. Resetea tu contraseña y se restaurara automaticamente')
+      }
+    }
+  }
+
+  const handleGoogleSignIn = async () => {
+    try {
+      await loginWithGoogle()
+      navigate('/');
+    } catch (error) {
+      if (error.code === "auth/account-exists-with-different-credential") {
+        setError("El email ya esta registrado")
+      }
+    }
+  }
+
+  const handleGitHubSignIn = async () => {
+    try {
+      await loginWithGitHub();
+      navigate('/');
+    } catch (error) {
+      if (error.code === "auth/account-exists-with-different-credential") {
+        setError("El email ya esta registrado")
+      }
+      console.log(error.code);
     }
   }
 
@@ -67,11 +92,11 @@ const Login = () => {
               </button>
               <Link to='/register' className='register-button'>Registrarse<ArrowForwardIcon fontSize="small" /></Link>
             </div>
-            <a className='recuperar-contraseña' href="#">Olvidaste tu contraseña?</a>
+            <Link to='/recover-password' className='recuperar-contraseña' href="#">Olvidaste tu contraseña?</Link>
           </div>
         </form>
-        <button className='google-register'>Google</button>
-        <button className='github-register'>Github</button>
+        <button onClick={handleGoogleSignIn} className='google-register'>Google</button>
+        <button onClick={handleGitHubSignIn} className='github-register'>Github</button>
       </div>
     </div>
   )

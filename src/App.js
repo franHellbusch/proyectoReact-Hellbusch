@@ -13,14 +13,16 @@ import AuthCustomProvider from './context/AuthContext';
 import Register from './components/LoginAndRegister/Register'
 import Login from './components/LoginAndRegister/Login';
 import ProtectedRoute from './components/LoginAndRegister/ProtectedRoute';
+import RecoverPassword from './components/LoginAndRegister/RecoverPassword';
 
 function App() {
   return (
     <BrowserRouter>
       <AuthCustomProvider>
         <Routes>
-          <Route path='/register' element={<Register />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/recover-password' element={<RecoverPassword />}/>
           <Route path='*' element={
             <ProtectedRoute>
               <CartContext>

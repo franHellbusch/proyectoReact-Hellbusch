@@ -55,17 +55,15 @@ const Register = () => {
                         <input onChange={handleChange} type="password" name='password' required />
                         <label>Password</label>
                     </div>
-                    <div className='buttons-position'>
-                        <div className="submit-position">
-                            <Link to='/login' className='login-button'><ArrowBackIcon fontSize="small" />Login</Link>
-                            <button className='submit-button' type='submit'>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                Registrar
-                            </button>
-                        </div>
+                    <div className="submit-position">
+                        <Link to='/login' className='login-button'><ArrowBackIcon fontSize="small" />Login</Link>
+                        <button className='submit-button' type='submit'>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            Registrar
+                        </button>
                     </div>
                 </form>
             </div>

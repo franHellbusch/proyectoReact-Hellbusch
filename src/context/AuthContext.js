@@ -1,5 +1,14 @@
 import { createContext, useContext, useEffect, useState } from "react"
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth'
+import {
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut,
+    GoogleAuthProvider,
+    signInWithPopup,
+    GithubAuthProvider,
+    sendPasswordResetEmail
+} from 'firebase/auth'
 import { auth } from "../Firebase/firebase";
 
 const AuthContext = createContext();
@@ -21,18 +30,30 @@ const AuthCustomProvider = ({ children }) => {
 
     const logOut = () => signOut(auth);
 
-    useEffect(() => {
-      const unSubscribe = onAuthStateChanged(auth, currentUser => {
-        setUser(currentUser)
-        setLoading(false)
-      })
+    const loginWithGoogle = () => {
+        const googleProvider = new GoogleAuthProvider();
+        return signInWithPopup(auth, googleProvider);
+    }
 
-      return () => unSubscribe()
+    const loginWithGitHub = () => {
+        const gitHubProvider = new GithubAuthProvider();
+        return signInWithPopup(auth, gitHubProvider);
+    }
+
+    const resetPassword = (email) => sendPasswordResetEmail(auth, email)
+
+    useEffect(() => {
+        const unSubscribe = onAuthStateChanged(auth, currentUser => {
+            setUser(currentUser)
+            setLoading(false)
+        })
+
+        return () => unSubscribe()
     }, [])
-    
+
 
     return (
-        <Provider value={{ signUp, login, user, logOut, loading }}>
+        <Provider value={{ signUp, login, user, logOut, loading, loginWithGoogle, loginWithGitHub, resetPassword }}>
             {children}
         </Provider>
     )

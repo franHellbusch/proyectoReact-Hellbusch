@@ -23,7 +23,6 @@ const NavBar = () => {
             <div className='contenido_header-nav'>
                 <nav className='header-nav'>
                     <LinksContainer />
-                    <button className='nav-buttons'>Login</button>
                     <button onClick={handleLogout} className='nav-buttons'>LogOut</button>
                 </nav>
                 <NavLink to='/cart'><CartWidget /></NavLink>
