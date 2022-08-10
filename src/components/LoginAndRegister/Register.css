@@ -24,6 +24,20 @@
     margin: 0;
 }
 
+.error-message{
+    font-size: 15px;
+    color: #fff;
+    background: rgb(129, 8, 8);
+    border: 1px solid #fff;
+    border-radius: 10px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 2rem;
+}
+
 @keyframes background {
     to {
         background-position: 200% center;
