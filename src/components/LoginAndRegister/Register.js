@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './Register.css'
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useAuthContext } from '../../context/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -24,6 +24,7 @@ const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        setError("")
         try {
             await signUp(user.email, user.password);
             navigate("/");
@@ -41,7 +42,7 @@ const Register = () => {
     }
 
     return (
-        <>
+        <div className='register-background'>
             <div className="register-box">
                 <h2>Registrarse</h2>
                 {error && <p className='error-message'>{error}</p>}
@@ -56,21 +57,19 @@ const Register = () => {
                     </div>
                     <div className='buttons-position'>
                         <div className="submit-position">
+                            <Link to='/login' className='login-button'><ArrowBackIcon fontSize="small" />Login</Link>
                             <button className='submit-button' type='submit'>
                                 <span></span>
                                 <span></span>
                                 <span></span>
                                 <span></span>
-                                Register
+                                Registrar
                             </button>
-                            <Link to='/login' className='login-button'>Login<ArrowForwardIcon fontSize="small" /></Link>
                         </div>
                     </div>
                 </form>
-                <button className='google-register'>Google</button>
-                <button className='github-register'>Github</button>
             </div>
-        </>
+        </div>
     )
 }
 

@@ -1,10 +1,19 @@
 import imagenlogo from '../assets/imagenlogo.jpg';
 import CartWidget from './CartWidget'
 import './navbar.css';
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import LinksContainer from './LinksContainer.js'
+import { useAuthContext } from '../context/AuthContext';
 
 const NavBar = () => {
+
+    const { user, logOut } = useAuthContext()
+    const navigate = useNavigate()
+
+    const handleLogout = async () => {
+        await logOut()
+    }
+
     return (
         <header>
             <div className='pagename'>
@@ -15,7 +24,7 @@ const NavBar = () => {
                 <nav className='header-nav'>
                     <LinksContainer />
                     <button className='nav-buttons'>Login</button>
-                    <button className='nav-buttons'>Sing Up</button>
+                    <button onClick={handleLogout} className='nav-buttons'>LogOut</button>
                 </nav>
                 <NavLink to='/cart'><CartWidget /></NavLink>
             </div>
