@@ -9,7 +9,7 @@ const CartForm = ({finalizarCompra}) => {
         email: "",
         localidad: "",
         domicilio: "",
-        celular: ""
+        celular: "",
     });
 
     const handleChange = ({target: {name, value}}) => {

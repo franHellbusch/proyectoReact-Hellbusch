@@ -6,14 +6,14 @@ import './RecoverPassword.css'
 
 const RecoverPassword = () => {
 
-    const [emailToRecover, setEmailToRecover] = useState({ emailToRecover: '' })
+    const [emailToRecover, setEmailToRecover] = useState('')
     const [message, setMessage] = useState()
     const [error, setError] = useState()
 
     const { resetPassword } = useAuthContext()
 
-    const handleChange = ({ target: { name, value } }) => {
-        setEmailToRecover({ [name]: value })
+    const handleChange = ({ target: { value } }) => {
+        setEmailToRecover( value )
     }
 
     const handleSubmit = async (e) => {
@@ -21,7 +21,7 @@ const RecoverPassword = () => {
         setMessage("")
         setError("")
         try {
-            await resetPassword(emailToRecover.emailToRecover)
+            await resetPassword(emailToRecover)
             setMessage("Se a enviado un correo a su cuenta")
         } catch (error) {
             if (error.code === "auth/invalid-email") {

@@ -6,8 +6,11 @@ import CartForm from './CartForm/CartForm.js'
 import CartBuyed from './CartBuyed/CartBuyed.js'
 import './CartContainer.css'
 import { useCartContext } from '../../context/CartContext'
+import { useAuthContext } from '../../context/AuthContext'
 
 const CartContainer = () => {
+
+  const {user} = useAuthContext()
 
   const { products, getTotalPrice } =  useCartContext();
   const [venta, setVenta] = useState("")
@@ -24,6 +27,16 @@ const CartContainer = () => {
     email: "......@gmail.com"
   }
 
+  const i = products.map((e) => {
+    const img = e.product.image;
+    const id = e.product.id;
+    const name = e.product.title;
+    const price = e.product.price * e.quantity;
+    const quantity = e.quantity
+
+    return { img, id, name, price, quantity }
+  })
+
   const finalizarCompra = (buyer) => {
     console.log(buyer)
     setFinish(true)
@@ -31,7 +44,8 @@ const CartContainer = () => {
     const ventasCollection = collection(db, 'ventas');
     addDoc(ventasCollection, {
       buyer: buyer,
-      items: products,
+      UID: user.uid,
+      items: i,
       date: serverTimestamp(),
       total: getTotalPrice().toFixed(1)
     })

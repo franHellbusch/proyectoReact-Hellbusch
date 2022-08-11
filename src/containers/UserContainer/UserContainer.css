@@ -1,0 +1,243 @@
+.user-container {
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.user-info {
+    background: #99a8ee;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-info h3{
+    margin-top: 1.5rem;
+}
+
+.buscador-compras {
+    position: relative;
+    background: #ced2e2;
+    overflow-y: auto;
+    width: 70%;
+    height: 90vh;
+    box-shadow: -2px 4px 11px 0px #ced2e2;
+}
+
+.error-busqueda{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 40%;
+    left: 50%;
+    width: fit-content;
+    margin-top: 2rem;
+    font-size: 25px;
+    color: #f1f1f1;
+    background: #082032;
+    border: 1px solid #f1f1f1;
+    border-radius: 10px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 2rem;
+}
+
+.mensaje-busqueda{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 40%;
+    left: 50%;
+    text-align: center;
+    padding-bottom: 2rem;
+    font-size: 35px;
+    background: linear-gradient(to right, #8403f2 20%, #a6b2ec 40%, #a6b2ec 60%, #8403f2 80%);
+    background-size: 200% auto;
+    color: transparent;
+    background-clip: text;
+    animation: background 3s linear infinite;
+    margin: 0;
+}
+
+@keyframes background {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.controles-busqueda {
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: baseline;
+}
+
+.search-container {
+    width: 200px;
+    height: 30px;
+    position: relative;
+}
+
+.search-label {
+    position: absolute;
+    left: 5px;
+    top: 8px;
+    transition: all 0.2s;
+    padding: 0 2px;
+    color: black;
+}
+
+.search-input {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #272530;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3;
+    color: black;
+}
+
+label::before {
+    content: "";
+    height: 5px;
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 100%;
+    z-index: -1;
+}
+
+.search-input:focus {
+    border: 2px solid #8403f2;
+}
+
+.search-input:focus~.search-label,
+.search-input:valid~.search-label {
+    top: -20px;
+    color: #8403f2;
+    font: 14px;
+}
+
+.search-input::placeholder {
+    font-size: 16px;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.text-input:focus::placeholder {
+    opacity: 1;
+}
+
+.search-button {
+    cursor: pointer;
+    font-size: 15px;
+    color: aliceblue;
+    background-color: #082032;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 0;
+    box-shadow: 1px 1px 2px #082032;
+    transition: 0.5s;
+    margin-left: 1rem;
+}
+
+.search-button:hover {
+    transform: scale(1.05);
+}
+
+.mis-compras-button {
+    border-radius: 20px;
+    border: 1px solid black;
+    box-shadow: 1px 1px 2px 1px black;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px;
+    width: fit-content;
+    background: linear-gradient(to right, #a6b2ec, #3f0071);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.mis-compras-button:hover {
+    transform: scale(1.05);
+    box-shadow: 3px 3px 4px 1px black;
+    ;
+}
+
+.compras-totales {
+    margin: 1rem;
+    padding: 0.5rem;
+    border-radius: 20px;
+    box-shadow: 1px 1px 4px 1px #082032;
+    background: #8403f2;
+}
+
+.compras-totales p {
+    margin-left: 1rem;
+    color: #fff;
+    font-size: 15px;
+}
+
+.loader-user {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 40%;
+    left: 50%;
+    width: 100px;
+    height: 130px;
+    background: #fff;
+    border-radius: 4px;
+}
+
+.loader-user:before {
+    content: '';
+    position: absolute;
+    width: 54px;
+    height: 25px;
+    left: 50%;
+    top: 0;
+    background-image:
+        radial-gradient(ellipse at center, #0000 24%, #8403f2 25%, #8403f2 64%, #0000 65%),
+        linear-gradient(to bottom, #0000 34%, #8403f2 35%);
+    background-size: 12px 12px, 100% auto;
+    background-repeat: no-repeat;
+    background-position: center top;
+    transform: translate(-50%, -65%);
+    box-shadow: 0 -3px rgba(0, 0, 0, 0.25) inset;
+}
+
+.loader-user:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);
+    width: 66%;
+    height: 60%;
+    background: linear-gradient(to bottom, #8403f2 30%, #0000 31%);
+    background-size: 100% 16px;
+    animation: writeDown 2s ease-out infinite;
+}
+
+@keyframes writeDown {
+    0% {
+        height: 0%;
+        opacity: 0;
+    }
+
+    20% {
+        height: 0%;
+        opacity: 1;
+    }
+
+    80% {
+        height: 65%;
+        opacity: 1;
+    }
+
+    100% {
+        height: 65%;
+        opacity: 0;
+    }
+}

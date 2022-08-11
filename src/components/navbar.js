@@ -1,14 +1,20 @@
+import { useState } from 'react';
 import imagenlogo from '../assets/imagenlogo.jpg';
 import CartWidget from './CartWidget'
 import './navbar.css';
 import { Link, NavLink } from 'react-router-dom'
 import LinksContainer from './LinksContainer.js'
 import { useAuthContext } from '../context/AuthContext';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const NavBar = () => {
 
     const { user, logOut } = useAuthContext()
+
+    const [error, setError] = useState(false);
+
+    const imgLoaded = () => {
+        setError(true);
+    }
 
     const handleLogout = async () => {
         await logOut()
@@ -24,9 +30,9 @@ const NavBar = () => {
                 <nav className='header-nav'>
                     <LinksContainer />
                     <button onClick={handleLogout} className='nav-buttons'>LogOut</button>
-                    {user.photoURL ?
-                    <Link to='/user'><img className='user-img' src={user.photoURL} alt={user.displayName} /></Link>:
-                    <Link to='/user'><AccountCircleIcon className='user-icon' fontSize="large"/></Link>}
+                    {error || !user.photoURL ?
+                    <Link to='/user'><img className='user-img' src="https://firebasestorage.googleapis.com/v0/b/tiendaonline-react-34a28.appspot.com/o/usuario.png?alt=media&token=a2019736-876f-4450-81b0-5956e169d760" alt="user" /></Link> :
+                    <Link to='/user'><img className='user-img' src={user.photoURL} alt={user.displayName} onError={imgLoaded} /></Link>}
                 </nav>
                 <NavLink to='/cart'><CartWidget /></NavLink>
             </div>
