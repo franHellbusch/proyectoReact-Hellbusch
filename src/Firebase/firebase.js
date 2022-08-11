@@ -8,7 +8,7 @@ const firebaseConfig = {
   projectId: "tiendaonline-react-34a28",
   storageBucket: "tiendaonline-react-34a28.appspot.com",
   messagingSenderId: "241286571013",
-  appId: "1:241286571013:web:dc32d90c6f53a77e4aa86c"
+  appId: "1:241286571013:web:dc32d90c6f53a77e4aa86c",
 };
 
 // Initialize Firebase

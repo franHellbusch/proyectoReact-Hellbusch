@@ -14,6 +14,7 @@ import Register from './components/LoginAndRegister/Register'
 import Login from './components/LoginAndRegister/Login';
 import ProtectedRoute from './components/LoginAndRegister/ProtectedRoute';
 import RecoverPassword from './components/LoginAndRegister/RecoverPassword';
+import UserContainer from './containers/UserContainer/UserContainer';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
                   <Route path='/' element={<ItemListContainer />} />
                   <Route path='/category/:categoryName' element={<ItemListContainer />} />
                   <Route path='/product/:productId' element={<ItemDetailContainer />} />
+                  <Route path='/user' element={< UserContainer/>}/>
                   <Route path='/cart' element={<CartContainer />} />
                 </ Routes>
               </CartContext>

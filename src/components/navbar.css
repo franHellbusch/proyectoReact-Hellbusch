@@ -57,3 +57,25 @@ a{
 .nav-buttons:hover{
     transform: scale(1.05);
 }
+
+.user-img{
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid black;
+    border-radius: 50%;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.user-icon{
+    color: #3f0071;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.user-img:hover,
+.user-icon:hover{
+    transform: scale(1.05);
+}
