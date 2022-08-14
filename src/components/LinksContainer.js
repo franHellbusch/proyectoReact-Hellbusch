@@ -21,7 +21,7 @@ const LinksContainer = () => {
                 })
                 setCategories(categoriesList)
             })
-            .catch((err) => console.log(err))
+            .catch((err) => console.log(err));
     }, []);
 
     const dropdownCategories = () => {
@@ -32,13 +32,12 @@ const LinksContainer = () => {
         <div className='nav-links-container'>
             <NavLink to="/" className='nav-links'>Inicio</NavLink>
             <div className="nav-links-dropdown">
-                <a className="nav-links link-dropdown-categories" href="#" onClick={dropdownCategories}>Categorias<ArrowDropDownIcon /></a>
+                <p className="nav-links link-dropdown-categories" onClick={dropdownCategories}>Categorias<ArrowDropDownIcon /></p>
                 {drop === true && <ul className="categories-dropdown">
                     {categories.map((category, index) =>
                         <NavLink className="category-links" key={index} to={`/category/${category.categoryName}`}>{category.categoryName}</NavLink>)}
                 </ul>}
             </div>
-            <a className="nav-links" href="#">Contacto</a>
         </div>
     )
 }

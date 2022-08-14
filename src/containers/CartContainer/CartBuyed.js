@@ -5,10 +5,11 @@ const CartBuyed = ({idVenta}) => {
     <>
         {idVenta ?
         <>
+            <p>Id de compra: <b>{idVenta}</b></p>
             <h1>Gracias por tu compra!</h1>
-            <p>Id: <b>{idVenta}</b></p>
+            <p>En tu perfil utiliza el id para verificar tu compra</p>
         </> :
-        <h1>Loading...</h1>}
+        <div className='loader-position'><div className='loader'></div></div>}
     </>
   )
 }

@@ -12,7 +12,7 @@ const CartContainer = () => {
 
   const {user} = useAuthContext()
 
-  const { products, total } =  useCartContext();
+  const { products, total, clear } =  useCartContext();
   const [venta, setVenta] = useState("")
   const [finish, setFinish] = useState(false);
   const [complete, setComplete] = useState(false)
@@ -32,7 +32,6 @@ const CartContainer = () => {
   }
 
   const finalizarCompra = (buyer) => {
-    console.log(buyer)
     setFinish(true)
     setComplete(true)
     const ventasCollection = collection(db, 'ventas');
@@ -44,6 +43,7 @@ const CartContainer = () => {
       total: total
     })
     .then((result) => setVenta(result.id))
+    clear();
   }
 
   return (
@@ -51,7 +51,7 @@ const CartContainer = () => {
       { finish && complete ?
         <CartBuyed idVenta={venta} />
         : finish && !complete ?
-        <CartForm finalizarCompra={finalizarCompra}/>
+        <CartForm finalizarCompra={finalizarCompra} setFinish={setFinish}/>
         : <CartProducts products={products} completeForm={completeForm}/>}
     </div>
   )

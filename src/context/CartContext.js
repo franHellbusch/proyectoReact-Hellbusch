@@ -47,7 +47,7 @@ const CartCustomProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        setTotal(products.reduce((acum, e) => acum + (e.quantity * e.product.price), 0));
+        setTotal(products.reduce((acum, e) => acum + (e.quantity * e.product.price), 0).toFixed(1));
     }, [products])
 
 

@@ -17,7 +17,7 @@ const CartProducts = ({ completeForm, products }) => {
         <>
           <div className='cart-buttons-position'>
             <button className='cart-info-button' onClick={clear}>borrar</button>
-            <button className='finalizar-compra' onClick={completeForm}>Finalizar compra</button>
+            <button className='direccionar-form' onClick={completeForm}>Finalizar compra</button>
           </div>
           <div className='cart-item-container'>
             {products.map((e) => <CartItem key={e.product.id} product={e.product} quantity={e.quantity} removeItem={removeItem} />)}

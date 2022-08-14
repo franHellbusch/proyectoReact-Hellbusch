@@ -1,3 +1,14 @@
+.form-final {
+    display: flex;
+    flex-direction: column;
+    background: #3f0071;
+    width: 40%;
+    padding: 2rem;
+    border-radius: 5px;
+    border: 3px solid black;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
 .user-box {
     position: relative;
 }
@@ -6,12 +17,12 @@
     width: 100%;
     padding: 10px 0;
     font-size: 16px;
-    color: #3f0071;
-    margin-bottom: 30px;
+    color: #fff;
     border: none;
-    border-bottom: 1px solid #3f0071;
+    border-bottom: 1px solid #a6b2ec;
     outline: none;
     background: transparent;
+    margin: 0.5rem 0;
 }
 
 .user-box label {
@@ -20,7 +31,7 @@
     left: 0;
     padding: 10px 0;
     font-size: 16px;
-    color: #3f0071;
+    color: #fff;
     pointer-events: none;
     transition: .5s;
 }
@@ -29,11 +40,77 @@
 .user-box input:valid~label {
     top: -20px;
     left: 0;
-    color: #03e9f4;
+    color: #a6b2ec;
     font-size: 12px;
 }
 
+.envio-form {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.checkbox-envio {
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-envio label {
+    color: #a6b2ec;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.checkbox-envio input {
+    width: 30px;
+}
+
+.number-input {
+    width: 60%;
+}
+
+.form-final-buttons {
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cancelar-compra {
+    color: white;
+    font-size: 15px;
+    padding: 10px 15px;
+    height: fit-content;
+    background: brown;
+    border: 1px solid black;
+    box-shadow: 1px 1px 3px black;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.finalizar-compra {
+    color: #fff;
+    font-size: 15px;
+    background: green;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cancelar-compra:hover,
+.finalizar-compra:hover {
+    box-shadow: 1px 2px 4px black;
+    transform: scale(1.04);
+}
+
+
 .title-form {
+    padding-bottom: 2rem;
     font-size: 40px;
     background: linear-gradient(to right, #3f0071 20%, #f1f1f1 40%, #a6b2ec 60%, #3f0071 80%);
     background-size: 200% auto;
@@ -47,52 +124,4 @@
     to {
         background-position: 200% center;
     }
-}
-
-.form {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.nombre-completo {
-    width: 35%;
-    margin: 10px 10px;
-    display: flex;
-    justify-content: center;
-    position: relative;
-}
-
-.direction-info {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.direction-inputs {
-    width: 100%;
-    margin: 10px 10px;
-}
-
-.name-input {
-    width: 100%;
-}
-
-.tel-input {
-    width: 30%;
-}
-
-.email-input {
-    width: 70%;
-    margin: 10px 0;
-}
-
-.placeholder {
-    position: absolute;
-    left: 0;
-}
-
-.name-input:focus .placeholder {
-    font-size: 5px;
 }

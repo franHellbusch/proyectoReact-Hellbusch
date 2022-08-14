@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import imagenlogo from '../assets/imagenlogo.jpg';
 import CartWidget from './CartWidget'
 import './navbar.css';
 import { Link, NavLink } from 'react-router-dom'
@@ -23,7 +22,7 @@ const NavBar = () => {
     return (
         <header>
             <div className='pagename'>
-                <Link to="/"><img className='img-logo' src={imagenlogo} alt="imagenLogo" /></Link>
+                <Link to="/"><img className='img-logo' src="https://firebasestorage.googleapis.com/v0/b/tiendaonline-react-34a28.appspot.com/o/imagenlogo.jpg?alt=media&token=f2c4de06-bd25-40df-9286-b49148223164" alt="imagenLogo" /></Link>
                 <Link to="/" className='pagetitle'>TiendaOnline</Link>
             </div>
             <div className='contenido_header-nav'>

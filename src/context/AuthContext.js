@@ -51,7 +51,6 @@ const AuthCustomProvider = ({ children }) => {
         return () => unSubscribe()
     }, [])
 
-
     return (
         <Provider value={{ signUp, login, user, logOut, loading, loginWithGoogle, loginWithGitHub, resetPassword }}>
             {children}

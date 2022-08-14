@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# Tienda Online: React JS
+Proyecto de e-commerce funcional creado para la entrega final del curso de React JS en ***CoderHouse***.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+>Link del proyecto: [Ir a la tienda](https://startling-salmiakki-e6d469.netlify.app/)
 
-## Available Scripts
+##Caracteristicas y herramientas:
+####Librerias
 
-In the project directory, you can run:
+- `Material Icons:`
+    - Para la utilización de iconos como **Cart**
 
-### `npm start`
+- `Firebase:`
+    - **Authentication:**
+    Para la implementación de un *Login* y *Register* con ***email y contraseña, Google acount y Github***.
+    ![AuthGif](https://firebasestorage.googleapis.com/v0/b/tiendaonline-react-34a28.appspot.com/o/auth-firebase.gif?alt=media&token=e63c024b-91c5-4550-b4ed-d6c6abfed54f)
+    - **FireStore:**
+    Para tener almacenamiento para ***producto, categorías y ventas realizadas*** dentro de la base de datos que ofrece *Firebase*, a través de la cual podremos realizar consultas de forma dinámica dentro de nuestra aplicación.
+    - **Storage:**
+    Para guardar imágenes dentro del almacén que nos proporciona y no descargarlas innecesariamente dentro del proyecto.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- `React-router-dom:`
+    - A partir de él se crea una navegación más fluida entre componentes, gracias a herramientas como **Link, Navigate, NavLink, etc.** Creando rutas para identificar cada sección del proyecto.
+    ![react-router](https://firebasestorage.googleapis.com/v0/b/tiendaonline-react-34a28.appspot.com/o/react-router.gif?alt=media&token=1ea4887d-8040-4e83-9ea8-737b32bef1bd)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- `Sweet Alert 2:`
+    - Para crear alerts con mejor apariencia y utilidad, como al momento de realizar una compra, o dar aviso de algo al usuario.
 
-### `npm test`
+###Diseño
+- Toda la app esta diseñada y maquetada con ***CSS nativo***
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+##Reproducir repositorio Github
+###Pasos:
+1. **Clonar:**
+    Clonar el ropositorio de GitHub:
+    >[Link al repositorio](https://github.com/franHellbusch/proyectoReact-Hellbusch)
 
-### `npm run build`
+2. **Instalar dependencias**
+    Debes realizar un ***npm install*** dentro de la consola en la carpeta local clonada, con ello instalarás todas las dependencias para que el proyecto funcione correctamente.
+    ![npm-img](https://firebasestorage.googleapis.com/v0/b/tiendaonline-react-34a28.appspot.com/o/Captura%20de%20pantalla%20(3).png?alt=media&token=16642671-4dbe-49c2-a104-01ea74dfbbba)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. **Inicializar**
+    Realiza un ***npm start*** y espera a que el proyecto se inicialice, y una vez tengas el mensaje de compilación está todo terminado.
+    ![mensaje-exitoso](https://firebasestorage.googleapis.com/v0/b/tiendaonline-react-34a28.appspot.com/o/Captura%20de%20pantalla%20(10).png?alt=media&token=1197a866-0108-4562-9ae5-592a5f130a41)

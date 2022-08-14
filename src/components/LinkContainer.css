@@ -4,6 +4,7 @@
 
 .link-dropdown-categories{
     display: flex;
+    cursor: pointer;
 }
 
 .nav-links{
