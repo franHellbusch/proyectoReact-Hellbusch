@@ -3,8 +3,8 @@ Proyecto de e-commerce funcional creado para la entrega final del curso de React
 
 >Link del proyecto: [Ir a la tienda](https://startling-salmiakki-e6d469.netlify.app/)
 
-##Caracteristicas y herramientas:
-####Librerias
+## Caracteristicas y herramientas:
+#### Librerias
 
 - `Material Icons:`
     - Para la utilización de iconos como **Cart**
@@ -25,11 +25,11 @@ Proyecto de e-commerce funcional creado para la entrega final del curso de React
 - `Sweet Alert 2:`
     - Para crear alerts con mejor apariencia y utilidad, como al momento de realizar una compra, o dar aviso de algo al usuario.
 
-###Diseño
+### Diseño
 - Toda la app esta diseñada y maquetada con ***CSS nativo***
 
-##Reproducir repositorio Github
-###Pasos:
+## Reproducir repositorio Github
+### Pasos:
 1. **Clonar:**
     Clonar el ropositorio de GitHub:
     >[Link al repositorio](https://github.com/franHellbusch/proyectoReact-Hellbusch)
