@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { addDoc ,collection, serverTimestamp } from 'firebase/firestore'
 import { db } from '../../Firebase/firebase'
 import CartProducts from './CartProducts/CartProducts'
-import CartForm from './CartForm/CartForm.js'
-import CartBuyed from './CartBuyed/CartBuyed.js'
+import CartForm from './CartForm.js'
+import CartBuyed from './CartBuyed.js'
 import './CartContainer.css'
 import { useCartContext } from '../../context/CartContext'
 import { useAuthContext } from '../../context/AuthContext'
@@ -12,22 +12,12 @@ const CartContainer = () => {
 
   const {user} = useAuthContext()
 
-  const { products, getTotalPrice } =  useCartContext();
+  const { products, total } =  useCartContext();
   const [venta, setVenta] = useState("")
   const [finish, setFinish] = useState(false);
   const [complete, setComplete] = useState(false)
 
-  const completeForm = () => {
-    setFinish(true)
-  }
-
-  const datosPersonales = {
-    Name: "fran",
-    phone: 150000000,
-    email: "......@gmail.com"
-  }
-
-  const i = products.map((e) => {
+  const items = products.map((e) => {
     const img = e.product.image;
     const id = e.product.id;
     const name = e.product.title;
@@ -35,7 +25,11 @@ const CartContainer = () => {
     const quantity = e.quantity
 
     return { img, id, name, price, quantity }
-  })
+  });
+
+  const completeForm = () => {
+    setFinish(true)
+  }
 
   const finalizarCompra = (buyer) => {
     console.log(buyer)
@@ -45,9 +39,9 @@ const CartContainer = () => {
     addDoc(ventasCollection, {
       buyer: buyer,
       UID: user.uid,
-      items: i,
+      items: items,
       date: serverTimestamp(),
-      total: getTotalPrice().toFixed(1)
+      total: total
     })
     .then((result) => setVenta(result.id))
   }

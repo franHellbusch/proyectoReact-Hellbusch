@@ -1,4 +1,39 @@
-.title-form{
+.user-box {
+    position: relative;
+}
+
+.user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #3f0071;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #3f0071;
+    outline: none;
+    background: transparent;
+}
+
+.user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #3f0071;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.user-box input:focus~label,
+.user-box input:valid~label {
+    top: -20px;
+    left: 0;
+    color: #03e9f4;
+    font-size: 12px;
+}
+
+.title-form {
     font-size: 40px;
     background: linear-gradient(to right, #3f0071 20%, #f1f1f1 40%, #a6b2ec 60%, #3f0071 80%);
     background-size: 200% auto;
@@ -14,14 +49,14 @@
     }
 }
 
-.form{
+.form {
     width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.nombre-completo{
+.nombre-completo {
     width: 35%;
     margin: 10px 10px;
     display: flex;
@@ -29,31 +64,31 @@
     position: relative;
 }
 
-.direction-info{
+.direction-info {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-.direction-inputs{
+.direction-inputs {
     width: 100%;
     margin: 10px 10px;
 }
 
-.name-input{
+.name-input {
     width: 100%;
 }
 
-.tel-input{
+.tel-input {
     width: 30%;
 }
 
-.email-input{
+.email-input {
     width: 70%;
     margin: 10px 0;
 }
 
-.placeholder{
+.placeholder {
     position: absolute;
     left: 0;
 }

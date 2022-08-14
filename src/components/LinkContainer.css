@@ -68,10 +68,6 @@
     margin: 5px;
 }
 
-.dropdown-closed{
-    display: none;
-}
-
 .active{
     color: black;
     opacity: 1;

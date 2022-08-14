@@ -97,7 +97,6 @@ const UserContainer = () => {
                     <span className="loader-user"></span> :
                     loading === false && productFinded ?
                         <div className='compras-totales'>
-                            <p><b>Comprador:</b> {products.buyer.name}</p>
                             {products.items.map((e) => <UserProducts key={e.id} product={e} />)}
                             <p><b>Total de compra:</b> {products.total}</p>
                         </div> :
@@ -107,7 +106,6 @@ const UserContainer = () => {
                                 <>
                                     {listProducts.map((compra) =>
                                         <div key={compra.id} className='compras-totales'>
-                                            <p><b>Comprador:</b> {compra.buyer.name}</p>
                                             {compra.items.map((e) => <UserProducts key={e.id} product={e} />)}
                                             <p><b>Total de compra:</b> {compra.total}</p>
                                         </div>)}

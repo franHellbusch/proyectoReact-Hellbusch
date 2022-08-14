@@ -1,5 +1,8 @@
 .cart-container{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    height: 90.3vh;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 }

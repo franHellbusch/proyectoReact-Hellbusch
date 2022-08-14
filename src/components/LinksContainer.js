@@ -7,41 +7,40 @@ import { getDocs, collection } from "firebase/firestore";
 
 const LinksContainer = () => {
 
-    const [ categories, setCategories] = useState([])
+    const [categories, setCategories] = useState([]);
+    const [drop, setDrop] = useState(false);
 
     useEffect(() => {
         const categoriesCollection = collection(db, "categories");
         getDocs(categoriesCollection)
-        .then((res) => {
-            const categoriesList = res.docs.map((category) => {
-                return {
-                    ...category.data()
-                }
+            .then((res) => {
+                const categoriesList = res.docs.map((category) => {
+                    return {
+                        ...category.data()
+                    }
+                })
+                setCategories(categoriesList)
             })
-            setCategories(categoriesList)
-        })
-        .catch((err) => console.log(err))
+            .catch((err) => console.log(err))
     }, []);
 
-    const dropdownDisplay = () =>{
-        let dropdown = document.getElementById("categoriesDropdown")
-        dropdown.className.includes("dropdown-closed") === true ? dropdown.classList.remove("dropdown-closed") : dropdown.classList.add("dropdown-closed")
-    };
+    const dropdownCategories = () => {
+        drop === true ? setDrop(false) : setDrop(true);
+    }
 
-  return (
-    <div className='nav-links-container'>
-        <NavLink to="/" className='nav-links'>Inicio</NavLink>
-        <div className="nav-links-dropdown">
-            <a className="nav-links link-dropdown-categories" href="#" onClick={dropdownDisplay}>Categorias<ArrowDropDownIcon /></a>
-            <ul id="categoriesDropdown" className="categories-dropdown dropdown-closed">
-                {categories.map((category, index) =>
-                    <NavLink className="category-links" key={index} to={`/category/${category.categoryName}`}>{category.categoryName}</NavLink>
-                )}
-            </ul>
+    return (
+        <div className='nav-links-container'>
+            <NavLink to="/" className='nav-links'>Inicio</NavLink>
+            <div className="nav-links-dropdown">
+                <a className="nav-links link-dropdown-categories" href="#" onClick={dropdownCategories}>Categorias<ArrowDropDownIcon /></a>
+                {drop === true && <ul className="categories-dropdown">
+                    {categories.map((category, index) =>
+                        <NavLink className="category-links" key={index} to={`/category/${category.categoryName}`}>{category.categoryName}</NavLink>)}
+                </ul>}
+            </div>
+            <a className="nav-links" href="#">Contacto</a>
         </div>
-        <a className="nav-links" href="#">Contacto</a>
-    </div>
-  )
+    )
 }
 
 export default LinksContainer
