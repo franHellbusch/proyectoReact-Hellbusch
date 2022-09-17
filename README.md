@@ -1,7 +1,7 @@
 # Tienda Online: React JS
 Proyecto de e-commerce funcional creado para la entrega final del curso de React JS en ***CoderHouse***.
 
->Link del proyecto: [Ir a la tienda](https://startling-salmiakki-e6d469.netlify.app/)
+>Link del proyecto: [Ir a la tienda](https://proyectofranh.netlify.app/)
 
 ## Caracteristicas y herramientas:
 #### Librerias
